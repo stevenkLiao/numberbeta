@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NumberMachine</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="store_s_name">Please Enter Your Store\'s Name</string>
+    <string name="Submit">Submit</string>
+    <string name="name">Name</string>
+</resources>
