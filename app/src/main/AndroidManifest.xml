@@ -17,17 +17,19 @@
             //make google crawl my app
             <intent-filter android:label="@string/filter_title_viewgizmos">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
-                <data android:scheme="http"
+                <data
                     android:host="www.example.com"
-                    android:pathPrefix="/gizmos" />
-                <!-- note that the leading "/" is required for pathPrefix-->
+                    android:pathPrefix="/gizmos"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
                 <!-- Accepts URIs that begin with "example://gizmos” -->
-                <data android:scheme="example"
-                    android:host="gizmos" />
-
+                <data
+                    android:host="gizmos"
+                    android:scheme="example" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +37,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginAvtivity"></activity>
+        <activity android:name=".LoginAvtivity" />
+        <activity android:name=".QRcode"></activity>
     </application>
 
 </manifest>

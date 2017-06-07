@@ -6,4 +6,6 @@
     <string name="store_s_name">Please Enter Your Store\'s Name</string>
     <string name="Submit">Submit</string>
     <string name="name">Name</string>
+    <string name="filter_title_viewgizmos">label</string>
+    <string name="button">Button</string>
 </resources>
