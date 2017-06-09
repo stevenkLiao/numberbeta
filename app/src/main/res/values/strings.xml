@@ -8,4 +8,11 @@
     <string name="name">Name</string>
     <string name="filter_title_viewgizmos">label</string>
     <string name="button">Button</string>
+    <string name="QRbtn">Next</string>
+    <string name="QRview">Store Name</string>
+    <string name="comeBtn">Come</string>
+    <string name="numbertext">Now The Number \n is</string>
+    <string name="umberCnt">001</string>
+    <string name="numberCome">Number:</string>
+    <string name="numberCom">001</string>
 </resources>
