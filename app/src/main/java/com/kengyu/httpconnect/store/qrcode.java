@@ -21,18 +21,21 @@ import java.util.EnumMap;
 import java.util.Map;
 
 
-public class QRcode extends AppCompatActivity {
+public class qrcode extends AppCompatActivity {
 
     private TextView StoreName, QRtextv;
     private Button QRBtn;
     private int QRnumber = 0;
     private int CMnumber = 0;
     private String QRtext, CMtext;
+    private HTTP http;
+    private Thread Httpconnectthread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrcode);
+        http = new HTTP();
         StoreName = (TextView) findViewById(R.id.textView2);
         QRBtn = (Button) findViewById(R.id.button2);
         QRtextv = (TextView) findViewById(R.id.textView5);
@@ -89,7 +92,7 @@ public class QRcode extends AppCompatActivity {
                     imgView.setImageBitmap(bitmap);
                 } catch (WriterException e)
                 {
-
+                    Httpconnectthread = new HTTP.ConnectThread("sss");
                 }
 
             }
