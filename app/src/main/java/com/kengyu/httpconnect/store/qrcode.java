@@ -3,8 +3,9 @@ package com.kengyu.httpconnect.store;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,12 +25,12 @@ import java.util.Map;
 public class qrcode extends AppCompatActivity {
 
     private TextView StoreName, QRtextv;
-    private Button QRBtn;
+    private Button QRBtn,ComBtn;
     private int QRnumber = 0;
     private int CMnumber = 0;
     private String QRtext, CMtext;
     private HTTP http;
-    private Thread Httpconnectthread;
+    private Thread Connectthread, Comethread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,11 @@ public class qrcode extends AppCompatActivity {
         setContentView(R.layout.activity_qrcode);
         http = new HTTP();
         StoreName = (TextView) findViewById(R.id.textView2);
+
         QRBtn = (Button) findViewById(R.id.button2);
+        ComBtn = (Button) findViewById(R.id.button3);
+
+
         QRtextv = (TextView) findViewById(R.id.textView5);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -46,7 +51,7 @@ public class qrcode extends AppCompatActivity {
         QRBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String QRcontent = "This is " + storename;
+                String QRcontent = "http://192.168.0.104";
 
                 int QRcodeWidth = 200;
                 int QRcodeHeight = 200;
@@ -55,15 +60,15 @@ public class qrcode extends AppCompatActivity {
                 if (QRnumber < 10) {
                     QRtext = "00" + QRnumber;
                     QRtextv.setText(QRtext);
-                    QRcontent = QRcontent + "\nNumber is: " + QRnumber;
+                    //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
                 } else if (QRnumber >= 10 && QRnumber < 100) {
                     QRtext = "0" + QRnumber;
                     QRtextv.setText(QRtext);
-                    QRcontent = QRcontent + "\nNumber is: " + QRnumber;
+                    //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
                 } else {
                     QRtext = ""+QRnumber;
                     QRtextv.setText(QRtext);
-                    QRcontent = QRcontent + "\nNumber is: " + QRnumber;
+                    //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
                 }
                 //QRcode
                 Map<EncodeHintType, Object> hints = new EnumMap<EncodeHintType, Object>(EncodeHintType.class);
@@ -92,9 +97,20 @@ public class qrcode extends AppCompatActivity {
                     imgView.setImageBitmap(bitmap);
                 } catch (WriterException e)
                 {
-                    Httpconnectthread = new HTTP.ConnectThread("sss");
+
                 }
 
+            }
+        });
+
+        //ComBtn
+        ComBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CMtext = "http://192.168.0.104/change.php";
+                Comethread = new HTTP.ConnectThread(CMtext);
+                Comethread.start();
+                Log.d("http","test");
             }
         });
     }

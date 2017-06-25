@@ -24,7 +24,7 @@ public class LoginAvtivity extends AppCompatActivity {
                 storeName = editText.getText().toString();
                 Bundle bundle = new Bundle();
                 bundle.putString("storeName",storeName);
-                Intent intent = new Intent( LoginAvtivity.this, QRcode.class);
+                Intent intent = new Intent( LoginAvtivity.this, qrcode.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
