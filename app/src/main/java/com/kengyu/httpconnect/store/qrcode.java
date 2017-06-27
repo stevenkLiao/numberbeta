@@ -36,18 +36,20 @@ public class qrcode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrcode);
-        http = new HTTP();
-        StoreName = (TextView) findViewById(R.id.textView2);
 
-        QRBtn = (Button) findViewById(R.id.button2);
-        ComBtn = (Button) findViewById(R.id.button3);
+        //Set element
+        StoreName = (TextView) findViewById(R.id.TvStorename);
+        QRBtn = (Button) findViewById(R.id.BtnNext);
+        ComBtn = (Button) findViewById(R.id.BtnCome);
+        QRtextv = (TextView) findViewById(R.id.TvCurrentNumber2);
 
-
-        QRtextv = (TextView) findViewById(R.id.textView5);
+        //Get storename from bundle
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         final String storename = bundle.getString("storeName");
         StoreName.setText(storename);
+
+
         QRBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +58,7 @@ public class qrcode extends AppCompatActivity {
                 int QRcodeWidth = 200;
                 int QRcodeHeight = 200;
 
+                //Set current number
                 QRnumber ++;
                 if (QRnumber < 10) {
                     QRtext = "00" + QRnumber;
@@ -70,7 +73,8 @@ public class qrcode extends AppCompatActivity {
                     QRtextv.setText(QRtext);
                     //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
                 }
-                //QRcode
+
+                //QRcode manipulating
                 Map<EncodeHintType, Object> hints = new EnumMap<EncodeHintType, Object>(EncodeHintType.class);
                 hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
                 MultiFormatWriter writer = new MultiFormatWriter();
@@ -92,7 +96,7 @@ public class qrcode extends AppCompatActivity {
                         }
                     }
 
-                    ImageView imgView = (ImageView) findViewById(R.id.imageView);
+                    ImageView imgView = (ImageView) findViewById(R.id.ImvQRcode);
                     // 設定為 QR code 影像
                     imgView.setImageBitmap(bitmap);
                 } catch (WriterException e)

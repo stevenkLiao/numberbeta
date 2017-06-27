@@ -20,4 +20,11 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="noActionbarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- 設置不顯示ActionBar -->
+        <item name="windowActionBar">false</item>
+        <!--設置不顯示title-->
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>

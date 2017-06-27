@@ -29,16 +29,10 @@ public class HTTP {
 
         public void run() {
             try {
-
                 conn.setDoInput(true);
-                Reader in = new InputStreamReader(conn.getInputStream(), "UTF-8");
-                int data = 0;
-                String get = "";
-                while (data != -1) {
-                    data = in.read();
-                    get = get + (char)data;
-                }
-                Log.d("URL data is", get);
+                conn.connect();
+                conn.getInputStream();
+                
 
             } catch (Exception e) {
                 e.printStackTrace();

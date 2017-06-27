@@ -9,19 +9,21 @@ import android.widget.EditText;
 
 
 public class LoginAvtivity extends AppCompatActivity {
-    private Button Button1;
-    private EditText editText;
+    private Button loginBtn;
+    private EditText storeText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_avtivity);
-        Button1 = (Button) findViewById(R.id.button);
-        editText = (EditText) findViewById(R.id.editText);
-        Button1.setOnClickListener(new View.OnClickListener() {
+
+        //enter store name
+        loginBtn = (Button) findViewById(R.id.Btnlogin);
+        storeText = (EditText) findViewById(R.id.EdtStorename);
+        loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String storeName;
-                storeName = editText.getText().toString();
+                storeName = storeText.getText().toString();
                 Bundle bundle = new Bundle();
                 bundle.putString("storeName",storeName);
                 Intent intent = new Intent( LoginAvtivity.this, qrcode.class);

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kengyu.httpconnect.store">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -9,36 +11,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".FullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_name"
-            android:theme="@style/FullscreenTheme">
-            //make google crawl my app
-            <intent-filter android:label="@string/filter_title_viewgizmos">
-                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
-                <data
-                    android:host="www.example.com"
-                    android:pathPrefix="/gizmos"
-                    android:scheme="http" />
-                <!-- note that the leading "/" is required for pathPrefix -->
-                <!-- Accepts URIs that begin with "example://gizmos” -->
-                <data
-                    android:host="gizmos"
-                    android:scheme="example" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".SplashActivity"
+                  android:theme="@style/noActionbarTheme">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                //make google crawl my app
+                <intent-filter android:label="@string/filter_title_viewgizmos">
+                    <action android:name="android.intent.action.VIEW" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.BROWSABLE" />
+                    <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                    <data
+                        android:host="www.example.com"
+                        android:pathPrefix="/gizmos"
+                        android:scheme="http" />
+                        <!-- note that the leading "/" is required for pathPrefix -->
+                        <!-- Accepts URIs that begin with "example://gizmos” -->
+                    <data
+                        android:host="gizmos"
+                        android:scheme="example" />
+                </intent-filter>
+                //google crawl END
+
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
         </activity>
+
         <activity android:name=".LoginAvtivity" />
-        <activity android:name=".qrcode"></activity>
+        <activity android:name=".qrcode" />
+
     </application>
 
 </manifest>

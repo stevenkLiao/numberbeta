@@ -57,7 +57,8 @@
         android:layout_marginRight="0dp"
         android:layout_marginTop="30dp"
         android:contentDescription=""
-        app:srcCompat="@drawable/startimage" />
+        app:srcCompat="@drawable/startimage"
+        tools:ignore="ContentDescription" />
 
 
 </FrameLayout>
