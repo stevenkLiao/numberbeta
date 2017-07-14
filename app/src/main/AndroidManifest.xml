@@ -39,7 +39,7 @@
                 </intent-filter>
         </activity>
 
-        <activity android:name=".LoginAvtivity" />
+        <activity android:name=".LoginAvtivity"/>
         <activity android:name=".qrcode" />
 
     </application>
