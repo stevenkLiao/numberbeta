@@ -10,13 +10,14 @@
         android:id="@+id/BtnNext"
         android:layout_width="165dp"
         android:layout_height="48dp"
+        android:textSize="20sp"
         android:text="@string/QRbtn"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="268dp"
+        android:layout_marginBottom="258dp"
         app:layout_constraintHorizontal_bias="0.96"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
@@ -33,7 +34,7 @@
         android:textColor="@color/colorGray"
         android:background="@drawable/tvstore"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp"
         android:layout_marginStart="8dp"
@@ -68,6 +69,7 @@
         android:text="@string/numbertext"
         android:textColor="#000000"
         android:textSize="25dp"
+        android:background="@drawable/tvnumber"
         app:layout_constraintBottom_toTopOf="@+id/BtnNext"
         app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -78,21 +80,18 @@
 
     <Button
         android:id="@+id/BtnCome"
-        android:layout_width="358dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="39dp"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="27dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/comeBtn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        android:text="@string/comeBtn"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/TvComeNum1"
@@ -100,17 +99,15 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="357dp"
         android:text="@string/numberCome"
-        android:textColor="#FF00FF"
+        android:textColor="#000000"
         android:textSize="40sp"
-        app:layout_constraintHorizontal_bias="0.135"
+        android:background="@drawable/tvnumber"
+        app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="26dp"
         app:layout_constraintBottom_toTopOf="@+id/BtnCome"
-        app:layout_constraintVertical_bias="0.0"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
@@ -127,12 +124,13 @@
         android:text="@string/umberCnt"
         android:textColor="#FF0000"
         android:textSize="30sp"
+        android:background="@drawable/currentnum"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintLeft_toRightOf="@+id/ImvQRcode"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305" />
+        app:layout_constraintVertical_bias="0.335" />
 
     <TextView
         android:id="@+id/TvComeNum2"
@@ -140,19 +138,19 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="17dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="55dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="8dp"
         android:text="@string/numberCom"
-        android:textColor="#FF0000"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/BtnCome"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/TvComeNum1"
+        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.991"
+        app:layout_constraintVertical_bias="0.976"
         tools:ignore="RtlHardcoded" />
 
     <View
@@ -167,5 +165,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ImvQRcode"
-        app:layout_constraintVertical_bias="0.855" />
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:id="@+id/view2" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="100dp"
+        android:layout_height="5dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="101dp"
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>
