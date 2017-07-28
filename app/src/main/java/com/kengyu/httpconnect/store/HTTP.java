@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 
 /**
  * Created by Keng-Yu on 2017/6/21.
@@ -36,6 +37,7 @@ public class HTTP {
                 conn.setDoOutput(true);
 
                 DataOutputStream write = new DataOutputStream(conn.getOutputStream());
+                //String Httpparam2 = URLEncoder.encode(Httpparam,"UTF-8");
                 byte[] conbyte = Httpparam.getBytes();
                 write.write(conbyte);
                 write.flush();

@@ -22,13 +22,15 @@ public class LoginAvtivity extends AppCompatActivity {
         loginBtn = (Button) findViewById(R.id.Btnlogin);
         storeText = (EditText) findViewById(R.id.EdtStorename);
         loginBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                String storeName;
+                String storeName, storeNameTrn;
                 storeName = storeText.getText().toString();
-                storeName = "Name=" + storeName;
+                storeNameTrn = "Name=" + storeName;
 
-                Thread connthread = new HTTP.ConnectThread(storeName);
+                //Transpoprt the storeName to server
+                Thread connthread = new HTTP.ConnectThread(storeNameTrn);
                 connthread.start();
 
                 Bundle bundle = new Bundle();
@@ -39,13 +41,20 @@ public class LoginAvtivity extends AppCompatActivity {
             }
         });
 
+        //Press keycode DONE
         storeText.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_UP) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    String storeName;
+
+                    String storeName, storeNameTrn;
                     storeName = storeText.getText().toString();
+                    storeNameTrn = "Name=" + storeName;
+
+                    Thread connthread = new HTTP.ConnectThread(storeNameTrn);
+                    connthread.start();
+
                     Bundle bundle = new Bundle();
                     bundle.putString("storeName",storeName);
                     Intent intent = new Intent( LoginAvtivity.this, qrcode.class);
