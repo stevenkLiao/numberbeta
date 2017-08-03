@@ -24,13 +24,13 @@ import java.util.Map;
 
 public class qrcode extends AppCompatActivity {
 
-    private TextView StoreName, QRtextv;
+    private TextView StoreName, QRtextv, Comtextv;
     private Button QRBtn,ComBtn;
     private int QRnumber = 0;
     private int CMnumber = 0;
     private String QRtext, CMtext;
     private HTTP http;
-    private Thread Connectthread, Comethread;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,11 @@ public class qrcode extends AppCompatActivity {
         QRBtn = (Button) findViewById(R.id.BtnNext);
         ComBtn = (Button) findViewById(R.id.BtnCome);
         QRtextv = (TextView) findViewById(R.id.TvCurrentNumber2);
+        Comtextv = (TextView) findViewById(R.id.TvComeNum2);
+
+        /*initaial show*/
+        QRtextv.setText("000");
+        Comtextv.setText("000");
 
         //Get storename from bundle
         Intent intent = getIntent();
@@ -73,6 +78,10 @@ public class qrcode extends AppCompatActivity {
                     QRtextv.setText(QRtext);
                     //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
                 }
+                /*Update all_number*/
+                String updateparam="Name="+storename+"&all_number="+QRnumber;
+                Log.d("Num: ", updateparam);
+                Thread Upthread = new HTTP.UpdateThread(updateparam);
 
                 //QRcode manipulating
                 Map<EncodeHintType, Object> hints = new EnumMap<EncodeHintType, Object>(EncodeHintType.class);
@@ -111,10 +120,26 @@ public class qrcode extends AppCompatActivity {
         ComBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CMtext = "http://192.168.0.104/change.php";
-                Comethread = new HTTP.ConnectThread(CMtext);
-                Comethread.start();
-                Log.d("http","test");
+                //Set current number
+                CMnumber ++;
+                if (CMnumber < 10) {
+                    CMtext = "00" + CMnumber;
+                    Comtextv.setText(CMtext);
+                    //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
+                } else if (CMnumber >= 10 && CMnumber < 100) {
+                    CMtext = "0" + CMnumber;
+                    Comtextv.setText(CMtext);
+                    //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
+                } else {
+                    CMtext = ""+CMnumber;
+                    Comtextv.setText(CMtext);
+                    //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
+                }
+
+                /*Update all_number*/
+                String nupdateparam="Name="+storename+"&now_number="+CMnumber;
+                Log.d("Num: ", nupdateparam);
+                Thread nUpthread = new HTTP.nUpdateThread(nupdateparam);
             }
         });
     }

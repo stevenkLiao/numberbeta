@@ -14,9 +14,18 @@ import java.net.URLEncoder;
  */
 
 public class HTTP {
+    /*Insert Thread variable*/
     private static String connectIP = "http://61.228.19.108/post.php";
     private static String Httpparam;
 
+    /*Update Thread variable*/
+    private static String updateIP = "http://61.228.19.108/post.php";
+    private static String Updateparam;
+
+    /*Update Thread variable*/
+    private static String updatenIP = "http://61.228.19.108/post.php";
+    private static String nUpdateparam;
+    /*Insert Thread*/
     public static class ConnectThread extends Thread {
         URLConnection conn;
         public ConnectThread(String httpparam) {
@@ -56,6 +65,84 @@ public class HTTP {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    /*Update_all Thread*/
+    public static class UpdateThread extends Thread {
+        URLConnection uconn;
+        public UpdateThread(String updateparam) {
+            try {
+                Updateparam = updateparam;
+                URL url = new URL(updateIP);
+                uconn = url.openConnection();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        public void run() {
+            try {
+
+                uconn.setDoInput(true);
+                uconn.setDoOutput(true);
+
+                uconn.connect();
+
+                Reader in = new InputStreamReader(uconn.getInputStream());
+                /*
+                int data = 0;
+                String get = "";
+                while (data != -1) {
+                    data = in.read();
+                    get = get + (char)data;
+                }
+                Log.d("URL data is", get);
+                */
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    /*Update_now Thread*/
+    public static class nUpdateThread extends Thread {
+        URLConnection unconn;
+        public nUpdateThread(String updatenparam) {
+            try {
+                nUpdateparam = updatenparam;
+                URL url = new URL(updatenIP);
+                unconn = url.openConnection();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        public void run() {
+            try {
+
+                unconn.setDoInput(true);
+                unconn.setDoOutput(true);
+
+                unconn.connect();
+
+                Reader in = new InputStreamReader(unconn.getInputStream());
+                /*
+                int data = 0;
+                String get = "";
+                while (data != -1) {
+                    data = in.read();
+                    get = get + (char)data;
+                }
+                Log.d("URL data is", get);
+                */
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }
