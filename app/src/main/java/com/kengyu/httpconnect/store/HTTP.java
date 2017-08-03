@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.URLEncoder;
 
 /**
  * Created by Keng-Yu on 2017/6/21.
@@ -15,15 +14,15 @@ import java.net.URLEncoder;
 
 public class HTTP {
     /*Insert Thread variable*/
-    private static String connectIP = "http://61.228.19.108/post.php";
+    private static String connectIP = "http://61.228.20.193/insert.php";
     private static String Httpparam;
 
     /*Update Thread variable*/
-    private static String updateIP = "http://61.228.19.108/post.php";
+    private static String updateIP = "http://61.228.20.193/update_all.php?";
     private static String Updateparam;
 
     /*Update Thread variable*/
-    private static String updatenIP = "http://61.228.19.108/post.php";
+    private static String updatenIP = "http://61.228.20.193/update_now.php?";
     private static String nUpdateparam;
     /*Insert Thread*/
     public static class ConnectThread extends Thread {
@@ -74,6 +73,7 @@ public class HTTP {
         public UpdateThread(String updateparam) {
             try {
                 Updateparam = updateparam;
+                updateIP = updatenIP + Updateparam;
                 URL url = new URL(updateIP);
                 uconn = url.openConnection();
 
@@ -91,7 +91,7 @@ public class HTTP {
                 uconn.connect();
 
                 Reader in = new InputStreamReader(uconn.getInputStream());
-                /*
+
                 int data = 0;
                 String get = "";
                 while (data != -1) {
@@ -99,7 +99,7 @@ public class HTTP {
                     get = get + (char)data;
                 }
                 Log.d("URL data is", get);
-                */
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -113,6 +113,7 @@ public class HTTP {
         public nUpdateThread(String updatenparam) {
             try {
                 nUpdateparam = updatenparam;
+                updatenIP = updatenIP + nUpdateparam;
                 URL url = new URL(updatenIP);
                 unconn = url.openConnection();
 
@@ -130,7 +131,7 @@ public class HTTP {
                 unconn.connect();
 
                 Reader in = new InputStreamReader(unconn.getInputStream());
-                /*
+
                 int data = 0;
                 String get = "";
                 while (data != -1) {
@@ -138,7 +139,7 @@ public class HTTP {
                     get = get + (char)data;
                 }
                 Log.d("URL data is", get);
-                */
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

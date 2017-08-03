@@ -78,10 +78,12 @@ public class qrcode extends AppCompatActivity {
                     QRtextv.setText(QRtext);
                     //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
                 }
+
                 /*Update all_number*/
                 String updateparam="Name="+storename+"&all_number="+QRnumber;
                 Log.d("Num: ", updateparam);
                 Thread Upthread = new HTTP.UpdateThread(updateparam);
+                Upthread.start();
 
                 //QRcode manipulating
                 Map<EncodeHintType, Object> hints = new EnumMap<EncodeHintType, Object>(EncodeHintType.class);
@@ -140,6 +142,7 @@ public class qrcode extends AppCompatActivity {
                 String nupdateparam="Name="+storename+"&now_number="+CMnumber;
                 Log.d("Num: ", nupdateparam);
                 Thread nUpthread = new HTTP.nUpdateThread(nupdateparam);
+                nUpthread.start();
             }
         });
     }
