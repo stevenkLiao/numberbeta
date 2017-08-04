@@ -18,6 +18,8 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -29,7 +31,7 @@ public class qrcode extends AppCompatActivity {
     private int QRnumber = 0;
     private int CMnumber = 0;
     private String QRtext, CMtext;
-    private HTTP http;
+    private String URLstorename;
 
 
     @Override
@@ -54,6 +56,21 @@ public class qrcode extends AppCompatActivity {
         final String storename = bundle.getString("storeName");
         StoreName.setText(storename);
 
+        /*storename transfer*/
+        try {
+            URLstorename = URLEncoder.encode(storename, "utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        /*initial number*/
+        String updateparam="Name="+URLstorename+"&all_number="+QRnumber;
+        Thread Upthread = new HTTP.UpdateThread(updateparam);
+        Upthread.start();
+
+        String nupdateparam="Name="+URLstorename+"&now_number="+CMnumber;
+        Thread nUpthread = new HTTP.nUpdateThread(nupdateparam);
+        nUpthread.start();
 
         QRBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,8 +96,7 @@ public class qrcode extends AppCompatActivity {
                     //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
                 }
 
-                /*Update all_number*/
-                String updateparam="Name="+storename+"&all_number="+QRnumber;
+                String updateparam="Name="+URLstorename+"&all_number="+QRnumber;
                 Log.d("Num: ", updateparam);
                 Thread Upthread = new HTTP.UpdateThread(updateparam);
                 Upthread.start();
@@ -124,6 +140,10 @@ public class qrcode extends AppCompatActivity {
             public void onClick(View view) {
                 //Set current number
                 CMnumber ++;
+                if(CMnumber > QRnumber){
+                    CMnumber --;
+                }
+
                 if (CMnumber < 10) {
                     CMtext = "00" + CMnumber;
                     Comtextv.setText(CMtext);
@@ -138,8 +158,8 @@ public class qrcode extends AppCompatActivity {
                     //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
                 }
 
-                /*Update all_number*/
-                String nupdateparam="Name="+storename+"&now_number="+CMnumber;
+                /*Update now_number*/
+                String nupdateparam="Name="+URLstorename+"&now_number="+CMnumber;
                 Log.d("Num: ", nupdateparam);
                 Thread nUpthread = new HTTP.nUpdateThread(nupdateparam);
                 nUpthread.start();

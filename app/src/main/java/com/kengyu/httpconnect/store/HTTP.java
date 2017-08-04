@@ -72,9 +72,10 @@ public class HTTP {
         URLConnection uconn;
         public UpdateThread(String updateparam) {
             try {
-                Updateparam = updateparam;
-                updateIP = updatenIP + Updateparam;
-                URL url = new URL(updateIP);
+                String Updateparam = "";
+                Updateparam = updateIP + updateparam;
+                Log.d("UPDATE",Updateparam);
+                URL url = new URL(Updateparam);
                 uconn = url.openConnection();
 
             } catch (Exception e) {
@@ -112,9 +113,9 @@ public class HTTP {
         URLConnection unconn;
         public nUpdateThread(String updatenparam) {
             try {
-                nUpdateparam = updatenparam;
-                updatenIP = updatenIP + nUpdateparam;
-                URL url = new URL(updatenIP);
+                String nUpdateparam = "";
+                nUpdateparam = updatenIP + updatenparam;
+                URL url = new URL(nUpdateparam);
                 unconn = url.openConnection();
 
             } catch (Exception e) {
