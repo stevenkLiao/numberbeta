@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">免排隊號碼牌APP</string>
+    <string name="QRbtn">抽取</string>
+    <string name="QRview">店名</string>
+    <string name="Submit">開啟</string>
+    <string name="comeBtn">取餐</string>
+    <string name="name">店家名稱</string>
+    <string name="numberCome">取餐號碼</string>
+    <string name="numbertext">您的號碼</string>
+    <string name="store_s_name">請輸入店家名稱</string>
+</resources>
