@@ -75,7 +75,7 @@ public class qrcode extends AppCompatActivity {
         QRBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String QRcontent = "http://192.168.0.104";
+                String QRcontent = "http://61.228.16.210/indextmp.html?Name=" + storename;
 
                 int QRcodeWidth = 200;
                 int QRcodeHeight = 200;
@@ -85,15 +85,15 @@ public class qrcode extends AppCompatActivity {
                 if (QRnumber < 10) {
                     QRtext = "00" + QRnumber;
                     QRtextv.setText(QRtext);
-                    //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
+                    QRcontent = QRcontent + "&yourNumber=" + QRnumber;
                 } else if (QRnumber >= 10 && QRnumber < 100) {
                     QRtext = "0" + QRnumber;
                     QRtextv.setText(QRtext);
-                    //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
+                    QRcontent = QRcontent + "&yourNumber=" + QRnumber;
                 } else {
                     QRtext = ""+QRnumber;
                     QRtextv.setText(QRtext);
-                    //QRcontent = QRcontent + "\nNumber is: " + QRnumber;
+                    QRcontent = QRcontent + "&yourNumber=" + QRnumber;
                 }
 
                 String updateparam="Name="+URLstorename+"&all_number="+QRnumber;

@@ -14,15 +14,15 @@ import java.net.URLConnection;
 
 public class HTTP {
     /*Insert Thread variable*/
-    private static String connectIP = "http://61.228.20.193/insert.php";
+    private static String connectIP = "http://61.228.16.210/insert.php";
     private static String Httpparam;
 
     /*Update Thread variable*/
-    private static String updateIP = "http://61.228.20.193/update_all.php?";
+    private static String updateIP = "http://61.228.16.210/update_all.php?";
     private static String Updateparam;
 
     /*Update Thread variable*/
-    private static String updatenIP = "http://61.228.20.193/update_now.php?";
+    private static String updatenIP = "http://61.228.16.210/update_now.php?";
     private static String nUpdateparam;
     /*Insert Thread*/
     public static class ConnectThread extends Thread {
