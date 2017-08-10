@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/ImvSplash"
-        android:layout_width="421dp"
+        android:layout_width="350dp"
         android:layout_height="121dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
