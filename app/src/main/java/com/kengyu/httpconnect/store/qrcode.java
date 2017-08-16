@@ -75,7 +75,7 @@ public class qrcode extends AppCompatActivity {
         QRBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String QRcontent = "http://61.228.16.210/indextmp.html?Name=" + storename;
+                String QRcontent = "http://220.135.192.24/indexchi.html?Name=" + storename;
 
                 int QRcodeWidth = 200;
                 int QRcodeHeight = 200;
