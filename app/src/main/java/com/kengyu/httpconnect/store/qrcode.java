@@ -4,15 +4,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -25,8 +22,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.EnumMap;
 import java.util.Map;
-
-import java.util.logging.LogRecord;
 
 
 public class qrcode extends AppCompatActivity {
@@ -102,7 +97,6 @@ public class qrcode extends AppCompatActivity {
                 }
 
                 String updateparam="Name="+URLstorename+"&all_number="+QRnumber;
-                Log.d("Num: ", updateparam);
                 Thread Upthread = new HTTP.UpdateThread(updateparam);
                 Upthread.start();
 
@@ -165,7 +159,6 @@ public class qrcode extends AppCompatActivity {
 
                 /*Update now_number*/
                 String nupdateparam="Name="+URLstorename+"&now_number="+CMnumber;
-                Log.d("Num: ", nupdateparam);
                 Thread nUpthread = new HTTP.nUpdateThread(nupdateparam);
                 nUpthread.start();
             }
