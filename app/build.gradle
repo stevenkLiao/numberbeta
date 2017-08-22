@@ -3,11 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
-
-    android{compileOptions.encoding"utf8"}
-
+    android { compileOptions.encoding "utf8" }
     defaultConfig {
-        applicationId "com.kengyu.httpconnect"
+        applicationId 'com.kengyu.numbermachine'
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
@@ -20,6 +18,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors {
     }
 }
 
